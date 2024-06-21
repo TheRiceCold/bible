@@ -29,8 +29,8 @@ class _SearchPageState extends State<SearchPage> {
     for (var verse in widget.verses) {
       // Matching verse based on the trimmed and lowercase text
       bool matchVerse = verse.text
-        .trim().replaceAll(" ", "").toLowerCase()
-        .contains(_textEditingController.text.trim().replaceAll(" ", "").toLowerCase());
+        .trim().replaceAll(' ', '').toLowerCase()
+        .contains(_textEditingController.text.trim().replaceAll(' ', '').toLowerCase());
 
       if (matchVerse) {
         bool contains = _results.any((element) => element == verse);
@@ -52,13 +52,13 @@ class _SearchPageState extends State<SearchPage> {
           autofocus: true,
           controller: _textEditingController,
           decoration: const InputDecoration(
+            hintText: 'Search',
             border: InputBorder.none,
-            hintText: "Search",
-          ), // InputDecoration
+          ),
           onChanged: (o) => setState(() { }),
           onSubmitted: (s) async => await search().then((_) => _scrollController.jumpTo(0.0)),
           textInputAction: TextInputAction.search,
-        ), // TextField
+        ),
         actions: [
           // Clear search button when there's input
           if (_textEditingController.text.isNotEmpty)
@@ -70,9 +70,9 @@ class _SearchPageState extends State<SearchPage> {
                 });
               },
               icon: const Icon(Icons.close_rounded),
-            ), // IconButton
+            ),
         ],
-      ), // AppBar
+      ),
 
       // List view to display search results
       body: ListView.builder(
@@ -84,7 +84,7 @@ class _SearchPageState extends State<SearchPage> {
           return DecoratedBox(
             decoration: BoxDecoration(
               border: Border(bottom: BorderSide(color: Theme.of(context).hintColor)),
-            ), // BoxDecoration
+            ),
             child: ListTile(
               onTap: () {
                 // Scroll to the selected verse and close the search page
@@ -100,12 +100,12 @@ class _SearchPageState extends State<SearchPage> {
                 input: verse.text.trim(),
                 text: _textEditingController.text.trim(),
                 context: context),
-              subtitle: Text("${verse.book} ${verse.chapter}:${verse.verse}"),
-            ), // ListTile
-          ); // DecoratedBox
+              subtitle: Text('${verse.book} ${verse.chapter}:${verse.verse}'),
+            ),
+          );
         },
-      ), // ListView.builder
-    ); // Scaffold
+      ),
+    );
   }
 }
 

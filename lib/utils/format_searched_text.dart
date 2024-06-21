@@ -36,8 +36,8 @@ Text formatSearchText({
         style: TextStyle(
           color: Theme.of(context).colorScheme.primary,
           fontWeight: FontWeight.bold,
-        ), // TextStyle
-      ) // TextSpan
+        ),
+      )
     );
 
     // UPDATE the current index

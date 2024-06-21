@@ -38,13 +38,13 @@ class _HomePageState extends State<HomePage> {
           },
         );
       },
-    ); // Future.delayed
+    );
     super.initState();
   }
 
   // Process selected verse to create a formatted string
   String formattedSelectedVerses({ required List<Verse> verses }) {
-    String result = verses.map((e) => " [${e.book} ${e.chapter}:${e.verse}] ${e.text.trim()}").join();
+    String result = verses.map((e) => ' [${e.book} ${e.chapter}:${e.verse}] ${e.text.trim()}').join();
     return result;
   }
 
@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
             systemNavigationBarIconBrightness: Theme.of(context).brightness == Brightness.dark
               ? Brightness.light
               : Brightness.dark,
-          ), // SystemUiOverlayStyle
+          ),
           child: Scaffold(
             appBar: AppBar(
               title: currentVerse == null || isSelected 
@@ -72,12 +72,12 @@ class _HomePageState extends State<HomePage> {
                     Get.to(
                       () => BooksPage(
                         chapterIndex: currentVerse.chapter,
-                        bookIndex: currentVerse.book), // BooksPage
+                        bookIndex: currentVerse.book),
                       transition: Transition.leftToRight,
                     );
                   },
                   child: Text(currentVerse.book),
-                ), // GestureDetector
+                ),
               actions: [
                 if (isSelected)
                   IconButton(
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     icon: const Icon(Icons.copy_rounded),
-                  ), // IconButton
+                  ),
                 if (!isSelected)
                   IconButton(
                     onPressed: () async {
@@ -101,9 +101,9 @@ class _HomePageState extends State<HomePage> {
                       );
                     },
                     icon: const Icon(Icons.search_rounded),
-                  ), // IconButton
+                  ),
               ],
-            ), // AppBar
+            ),
             // Body of the Scaffold with a ScrollablePositionedList
             body: ScrollablePositionedList.builder(
               itemCount: verses.length,
@@ -115,10 +115,10 @@ class _HomePageState extends State<HomePage> {
               itemPositionsListener: mainProvider.itemPositionsListener,
               scrollOffsetController: mainProvider.scrollOffsetController,
               scrollOffsetListener: mainProvider.scrollOffsetListener,
-            ), // ScrollablePositionedList.builder
-          ), // Scaffold
-        ); //AnnotatedRegion
+            ),
+          ),
+        );
       },
-    ); // Consumer
+    );
   }
 }

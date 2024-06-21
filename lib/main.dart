@@ -67,7 +67,7 @@ class _MainAppState extends State<MainApp> {
           },
         );
       },
-    ); // Future.delayed
+    );
     super.initState();
   }
 

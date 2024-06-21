@@ -28,13 +28,13 @@ class VerseWidget extends StatelessWidget {
               children: <TextSpan>[
                 // TextSpan for chapter or verse number
                 TextSpan(
-                  text: verse.verse == 1 ? "${verse.chapter}" : "${verse.verse.toString()} ",
+                  text: verse.verse == 1 ? '${verse.chapter}' : '${verse.verse.toString()} ',
                   style: TextStyle(
                     fontSize: verse.verse == 1 ? 45 : 12,
                     fontWeight: verse.verse == 1 ? FontWeight.bold : FontWeight.w500,
                     color: Theme.of(context).colorScheme.primary,
-                  ), // TextStyle
-                ), // TextSpan
+                  ),
+                ),
                 TextSpan(
                   text: verse.text.trim(),
                   style: TextStyle(
@@ -43,12 +43,12 @@ class VerseWidget extends StatelessWidget {
                     decorationStyle: TextDecorationStyle.dotted,
                     decoration: isSelected ? TextDecoration.underline : null,
                   )
-                ), // TextSpan
-              ], // <TextSpan>[]
-            ), // TextSpan
-          ) // RichText
-        ); // ListTile
+                ),
+              ],
+            ),
+          )
+        );
       }
-    ); // Consumer
+    );
   }
 }

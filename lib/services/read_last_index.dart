@@ -6,8 +6,7 @@ class ReadLastIndex {
   // Static method to execute the reading process
   static Future<int?> execute() async {
     // Obtain an instance of SharedPreference
-    final SharedPreferences sharedPreferences =
-        await SharedPreferences.getInstance();
+    final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
     // Retrieve the last saved index from SharedPreferences
     return sharedPreferences.getInt('index');

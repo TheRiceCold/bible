@@ -49,9 +49,7 @@ class _BooksPageState extends State<BooksPage> {
       builder: (context, mainProvider, child) {
         return ExpandableNotifier(
           child: Scaffold(
-            appBar: AppBar(
-              title: const Text("Books"),
-            ), // AppBar
+            appBar: AppBar(title: const Text('Books')),
             body: ListView.builder(
               itemCount: books.length,
               physics: const BouncingScrollPhysics(),
@@ -67,7 +65,7 @@ class _BooksPageState extends State<BooksPage> {
                     title: ExpandablePanel(
                       controller: ExpandableController(
                         initialExpanded: currentBook == book
-                      ), // ExpandableController
+                      ),
                       collapsed: const SizedBox.shrink(),
                       header: Text(book.title),
                       expanded: Wrap(
@@ -98,22 +96,22 @@ class _BooksPageState extends State<BooksPage> {
                                     child: Text(
                                       chapter.title.toString(), 
                                       style: const TextStyle(fontSize: 15)
-                                    ), // Text
-                                  ), // Center
-                                ), // Card
-                              ), // GestureDetector
-                            ); // SizedBox
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
                           }
-                        ), // List.generate
-                      ), // Wrap
-                    ), // ExpandablePanel
-                  ), // ListTile
-                ); // AutoScrollTag
+                        ),
+                      ),
+                    ),
+                  ),
+                );
               },
-            ), // ListView.builder
-          ), // Scaffold
-        ); // ExpandableNotifier
+            ),
+          ),
+        );
       },
-    ); // Consumer
+    );
   }
 }
